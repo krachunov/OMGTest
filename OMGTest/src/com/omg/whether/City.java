@@ -12,11 +12,12 @@ public class City {
 	private Direction[] directions;
 
 	private static int DIRECTIONS = 4;
+	private static int HOURS = 24;
 
 	public City(String cityName) {
 		this.cityName = cityName;
 		this.rainfall = new ArrayList<Double>();
-		this.windForce =  new ArrayList<Double>();
+		this.windForce = new ArrayList<Double>();
 		this.directions = new Direction[DIRECTIONS];
 		;
 	}
@@ -57,10 +58,14 @@ public class City {
 	public String getCityName() {
 		return cityName;
 	}
-	@Override
-	public String toString(){
-		return this.cityName;
-		
+
+	public void print() {
+		System.out.println(getCityName());
+		for (int i = 0; i < HOURS; i++) {
+			System.out.println("Hour: " + i + " Rain fall: "+ getRainfall().get(i) + " wind force: "+ getWindForce().get(i) + " directions: "+ getDirections()[i]);
+			System.out.printf("Hour:  %d  Rain fall: %d wind force:  %d directions: "+ getDirections()[i],i,getRainfall().get(i),getWindForce().get(i));
+		}
+
 	}
 
 }
