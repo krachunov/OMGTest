@@ -1,22 +1,27 @@
 package com.omg.whether;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.text.StyledEditorKit.ForegroundAction;
+
 public class City {
 	private String cityName;
-	private double[] rainfall;
-	private double[] windForce;
+	private List<Double> rainfall;
+	private List<Double> windForce;
 	private Direction[] directions;
 
-	private static int hour = 24;
+	private static int DIRECTIONS = 4;
 
 	public City(String cityName) {
 		this.cityName = cityName;
-		this.rainfall = new double[hour];
-		this.windForce = new double[hour];
-		this.directions = new Direction[hour];
+		this.rainfall = new ArrayList<Double>();
+		this.windForce =  new ArrayList<Double>();
+		this.directions = new Direction[DIRECTIONS];
 		;
 	}
 
-	public City(String cityName, double[] rainfall, double[] windForce,
+	public City(String cityName, List<Double> rainfall, List<Double> windForce,
 			Direction[] directions) {
 
 		this.cityName = cityName;
@@ -25,19 +30,19 @@ public class City {
 		this.directions = directions;
 	}
 
-	public double[] getRainfall() {
+	public List<Double> getRainfall() {
 		return rainfall;
 	}
 
-	public void setRainfall(double[] rainfall) {
+	public void setRainfall(List<Double> rainfall) {
 		this.rainfall = rainfall;
 	}
 
-	public double[] getWindForce() {
+	public List<Double> getWindForce() {
 		return windForce;
 	}
 
-	public void setWindForce(double[] windForce) {
+	public void setWindForce(List<Double> windForce) {
 		this.windForce = windForce;
 	}
 
@@ -51,6 +56,11 @@ public class City {
 
 	public String getCityName() {
 		return cityName;
+	}
+	@Override
+	public String toString(){
+		return this.cityName;
+		
 	}
 
 }
