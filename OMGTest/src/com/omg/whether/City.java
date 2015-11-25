@@ -21,7 +21,6 @@ public class City {
 		this.rainfall = new ArrayList<Double>();
 		this.windForce = new ArrayList<Double>();
 		this.directions = new Direction[DIRECTIONS];
-		;
 	}
 
 	public City(String cityName, List<Double> rainfall, List<Double> windForce,
@@ -69,10 +68,13 @@ public class City {
 		return cityName;
 	}
 
-	public void print() {
+	public void printAllInfoAboutCity() {
 		System.out.println(getCityName());
 		for (int i = 0; i < HOURS; i++) {
-			System.out.printf("Hour: %d: Temperature: %dC Rain fall: %.1fmm wind force: %.1fm/s directions: %s\n", i,getTemperature().get(i),getRainfall().get(i),getWindForce().get(i),getDirections()[i]);
+			System.out
+					.printf("Hour: %d: Temperature: %dC Rain fall: %.1fmm wind force: %.1fm/s directions: %s\n",
+							i, getTemperature().get(i), getRainfall().get(i),
+							getWindForce().get(i), getDirections()[i]);
 		}
 		System.out.println();
 
