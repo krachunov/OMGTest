@@ -7,6 +7,7 @@ import com.omg.whether.dataGenerator.GenerateDate;
 public class Test {
 
 	public static void main(String[] args) {
+		int hours = 24;
 		WeatherConditions wc = new WeatherConditions();
 		wc.addCity("Sofia");
 		wc.addCity("Plovdi");
@@ -21,10 +22,15 @@ public class Test {
 
 		for (Entry<String, City> entry : wc.getCitysByName().entrySet()) {
 			City currentCity = entry.getValue();
-			currentCity.setTemperature(GenerateDate.generateTempereture());
-			currentCity.setRainfall(GenerateDate.generateRainfall());
-			currentCity.setTemperature(GenerateDate.generateTemperature());
-			currentCity.setDirections(GenerateDate.generateDirections());
+			currentCity.setTemperature(GenerateDate.generateTempereture(hours));
+			// currentCity.setRainfall(GenerateDate.generateRainfall());
+			// currentCity.setTemperature(GenerateDate.generateTemperature());
+			// currentCity.setDirections(GenerateDate.generateDirections());
+		}
+		for (Entry<String, City> entry : wc.getCitysByName().entrySet()) {
+			City currentCity = entry.getValue();
+			currentCity.print();
+
 		}
 
 	}
