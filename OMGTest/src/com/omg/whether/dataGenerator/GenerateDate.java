@@ -30,14 +30,17 @@ public class GenerateDate {
 		return rainFallList;
 	}
 
-	public static List<Integer> generateTemperature() {
+	public static List<Integer> generatewindForce() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static Direction[] generateDirections() {
-		// TODO Auto-generated method stub
-		return null;
+	public static Direction[] generateDirections(int hours) {
+		Direction[] directionList = new Direction[hours];
+		for (int i = 0; i < hours; i++) {
+			directionList[i] = Direction.getRandom();
+		}
+		return directionList;
 	}
 
 }
