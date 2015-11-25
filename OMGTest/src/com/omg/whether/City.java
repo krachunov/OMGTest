@@ -7,6 +7,7 @@ import javax.swing.text.StyledEditorKit.ForegroundAction;
 
 public class City {
 	private String cityName;
+	private List<Integer> temperature;
 	private List<Double> rainfall;
 	private List<Double> windForce;
 	private Direction[] directions;
@@ -16,6 +17,7 @@ public class City {
 
 	public City(String cityName) {
 		this.cityName = cityName;
+		this.temperature = new ArrayList<Integer>();
 		this.rainfall = new ArrayList<Double>();
 		this.windForce = new ArrayList<Double>();
 		this.directions = new Direction[DIRECTIONS];
@@ -29,6 +31,14 @@ public class City {
 		this.rainfall = rainfall;
 		this.windForce = windForce;
 		this.directions = directions;
+	}
+
+	public List<Integer> getTemperature() {
+		return temperature;
+	}
+
+	public void setTemperature(List<Integer> temperature) {
+		this.temperature = temperature;
 	}
 
 	public List<Double> getRainfall() {
@@ -62,12 +72,11 @@ public class City {
 	public void print() {
 		System.out.println(getCityName());
 		for (int i = 0; i < HOURS; i++) {
-//			System.out.println("Hour: " + i + " Rain fall: "+ getRainfall().get(i) + " wind force: "+ getWindForce().get(i) + " directions: "+ getDirections()[i]);
-//			System.out.printf("Hour:  %d  Rain fall: %d wind force:  %d directions: %d",i,getRainfall().get(i),getWindForce().get(i),getDirections()[i]);
-			System.out.printf("%nHour: ",i);
+			// System.out.printf("Hour:  %d  Rain fall: %d wind force:  %d directions: %d",i,getRainfall().get(i),getWindForce().get(i),getDirections()[i]);
+			System.out.printf(
+					"Hour: %d:  Rain fall: wind force:   directions: ", i);
 		}
 		System.out.println();
-	
 
 	}
 
