@@ -72,7 +72,7 @@ public class City {
 	public void print() {
 		System.out.println(getCityName());
 		for (int i = 0; i < HOURS; i++) {
-			System.out.printf("Hour: %d: Temperature: %d Rain fall: %.1f wind force:   directions: %s\n", i,getTemperature().get(i),getRainfall().get(i),getDirections()[i]);
+			System.out.printf("Hour: %d: Temperature: %d Rain fall: %.1f wind force: %.1f directions: %s\n", i,getTemperature().get(i),getRainfall().get(i),getWindForce().get(i),getDirections()[i]);
 		}
 		System.out.println();
 

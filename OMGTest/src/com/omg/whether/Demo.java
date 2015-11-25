@@ -4,7 +4,7 @@ import java.util.Map.Entry;
 
 import com.omg.whether.dataGenerator.GenerateDate;
 
-public class Test {
+public class Demo {
 
 	public static void main(String[] args) {
 		int hours = 24;
@@ -25,7 +25,7 @@ public class Test {
 			City currentCity = entry.getValue();
 			currentCity.setTemperature(GenerateDate.generateTempereture(hours));
 			currentCity.setRainfall(GenerateDate.generateRainfall(hours));
-			// currentCity.setTemperature(GenerateDate.generatewindForce());
+			currentCity.setWindForce(GenerateDate.generateWindForce(hours));
 			currentCity.setDirections(GenerateDate.generateDirections(hours));
 		}
 		// Print all cities and all information
