@@ -23,7 +23,7 @@ public class Test {
 		for (Entry<String, City> entry : wc.getCitysByName().entrySet()) {
 			City currentCity = entry.getValue();
 			currentCity.setTemperature(GenerateDate.generateTempereture(hours));
-			// currentCity.setRainfall(GenerateDate.generateRainfall());
+			 currentCity.setRainfall(GenerateDate.generateRainfall(hours));
 			// currentCity.setTemperature(GenerateDate.generateTemperature());
 			// currentCity.setDirections(GenerateDate.generateDirections());
 		}

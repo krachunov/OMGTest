@@ -7,9 +7,11 @@ import java.util.Random;
 import com.omg.whether.Direction;
 
 public class GenerateDate {
+
+	private static Random random = new Random();
+
 	public static List<Integer> generateTempereture(int hours) {
 		List<Integer> temperetureList = new ArrayList<Integer>();
-		Random random = new Random();
 		int singleTemperature;
 		for (int i = 0; i < hours; i++) {
 			singleTemperature = random.nextInt(25) + 1;
@@ -18,9 +20,14 @@ public class GenerateDate {
 		return temperetureList;
 	}
 
-	public static List<Double> generateRainfall() {
-		// TODO Auto-generated method stub
-		return null;
+	public static List<Double> generateRainfall(int hours) {
+		List<Double> rainFallList = new ArrayList<Double>();
+		double singleRainfall;
+		for (int i = 0; i < hours; i++) {
+			singleRainfall = random.nextDouble() * 80;
+			rainFallList.add(singleRainfall);
+		}
+		return rainFallList;
 	}
 
 	public static List<Integer> generateTemperature() {
