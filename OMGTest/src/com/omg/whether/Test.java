@@ -20,14 +20,15 @@ public class Test {
 		wc.addCity("Vraca");
 		wc.addCity("Sliev");
 
-		
+		// Generate values
 		for (Entry<String, City> entry : wc.getCitysByName().entrySet()) {
 			City currentCity = entry.getValue();
 			currentCity.setTemperature(GenerateDate.generateTempereture(hours));
-			 currentCity.setRainfall(GenerateDate.generateRainfall(hours));
-//			 currentCity.setTemperature(GenerateDate.generatewindForce());
-			 currentCity.setDirections(GenerateDate.generateDirections(hours));
+			currentCity.setRainfall(GenerateDate.generateRainfall(hours));
+			// currentCity.setTemperature(GenerateDate.generatewindForce());
+			currentCity.setDirections(GenerateDate.generateDirections(hours));
 		}
+		// Print all cities and all information
 		for (Entry<String, City> entry : wc.getCitysByName().entrySet()) {
 			City currentCity = entry.getValue();
 			currentCity.print();
