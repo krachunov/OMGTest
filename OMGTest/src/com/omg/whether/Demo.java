@@ -35,9 +35,13 @@ public class Demo {
 		}
 
 		System.out.println("City with minimum temperature");
-		weatherInfo.cityWithMinTemperature();
+		City cityWithMinTemperature = weatherInfo.cityWithMinTemperature();
+		System.out.println(cityWithMinTemperature);
 
 		System.out.println("City with maximum temperature");
-		weatherInfo.cityWithMaxTemperature();
+		City cityWithMaxTemperature = weatherInfo.cityWithMaxTemperature();
+		System.out.println(cityWithMaxTemperature);
+
+		// TODO Create expression who check min and max value of temperature
 	}
 }

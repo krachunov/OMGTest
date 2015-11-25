@@ -89,8 +89,17 @@ public class WeatherConditions {
 		return getAllCities().get(0);
 	}
 
-	public void cityWithMaxTemperature() {
-		// TODO Auto-generated method stub
+	public City cityWithMaxTemperature() {
+		getAllCities().sort(new Comparator<City>() {
+
+			@Override
+			public int compare(City o1, City o2) {
+				return (o1.getMinTemerature() < o2.getMinTemerature()) ? -1
+						: (o1.getMinTemerature() > o2.getMinTemerature()) ? 1
+								: 0;
+			}
+		});
+		return getAllCities().get(0);
 
 	}
 
