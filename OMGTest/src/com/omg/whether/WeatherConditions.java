@@ -1,5 +1,8 @@
 package com.omg.whether;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.Map.Entry;
@@ -9,14 +12,21 @@ import com.omg.whether.dataGenerator.GenerateDate;
 public class WeatherConditions {
 
 	private Map<String, City> citysByName;
+	private List<City> allCities;
+
+	// TODO Save city in order - min max
+	// Use sort and comparator
 
 	public WeatherConditions() {
 		this.citysByName = new TreeMap<String, City>();
+		this.allCities = new ArrayList<City>();
 	}
 
 	public void addCity(String cityName) {
 		City newCity = new City(cityName);
 		getCitysByName().put(cityName, newCity);
+		getAllCities().add(newCity);
+
 	}
 
 	public Map<String, City> getCitysByName() {
@@ -25,6 +35,14 @@ public class WeatherConditions {
 
 	public void setCitysByName(Map<String, City> citysByName) {
 		this.citysByName = citysByName;
+	}
+
+	public List<City> getAllCities() {
+		return allCities;
+	}
+
+	public void setAllCities(List<City> allCities) {
+		this.allCities = allCities;
 	}
 
 	// Generate values
@@ -55,6 +73,24 @@ public class WeatherConditions {
 	public void printInfoByCity(String city) {
 		City currentCity = getCitysByName().get(city);
 		currentCity.printAllInfoAboutCity();
+
+	}
+
+	public City cityWithMinTemperature() {
+		getAllCities().sort(new Comparator<City>() {
+
+			@Override
+			public int compare(City o1, City o2) {
+				return (o1.getMinTemerature() < o2.getMinTemerature()) ? 1
+						: (o1.getMinTemerature() > o2.getMinTemerature()) ? -1
+								: 0;
+			}
+		});
+		return getAllCities().get(0);
+	}
+
+	public void cityWithMaxTemperature() {
+		// TODO Auto-generated method stub
 
 	}
 

@@ -33,5 +33,11 @@ public class Demo {
 			String wantedCity = sc.nextLine();
 			weatherInfo.printInfoByCity(wantedCity);
 		}
+
+		System.out.println("City with minimum temperature");
+		weatherInfo.cityWithMinTemperature();
+
+		System.out.println("City with maximum temperature");
+		weatherInfo.cityWithMaxTemperature();
 	}
 }

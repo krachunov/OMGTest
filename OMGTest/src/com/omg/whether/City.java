@@ -11,6 +11,9 @@ public class City {
 	private List<Double> rainfall;
 	private List<Double> windForce;
 	private Direction[] directions;
+	private int maxTemerature;
+	private int minTemerature;
+	// TODO - Save min and max temperature for every city
 
 	private static int DIRECTIONS = 4;
 	private static int HOURS = 24;
@@ -66,6 +69,22 @@ public class City {
 
 	public String getCityName() {
 		return cityName;
+	}
+
+	public int getMaxTemerature() {
+		return maxTemerature;
+	}
+
+	public void setMaxTemerature(int maxTemerature) {
+		this.maxTemerature = maxTemerature;
+	}
+
+	public int getMinTemerature() {
+		return minTemerature;
+	}
+
+	public void setMinTemerature(int minTemerature) {
+		this.minTemerature = minTemerature;
 	}
 
 	public void printAllInfoAboutCity() {
