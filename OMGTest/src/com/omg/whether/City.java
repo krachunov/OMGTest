@@ -1,11 +1,12 @@
 package com.omg.whether;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.swing.text.StyledEditorKit.ForegroundAction;
 
-public class City {
+public class City implements Comparable<City>{
 	private String cityName;
 	private List<Integer> temperature;
 	private List<Double> rainfall;
@@ -98,5 +99,12 @@ public class City {
 		System.out.println();
 
 	}
+
+	@Override
+	public int compareTo(City o) {
+		return (this.getMinTemerature() < o.getMinTemerature()) ? 1: (this.getMinTemerature() > o.getMinTemerature()) ? -1: 0;
+	}
+
+
 
 }

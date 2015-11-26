@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
@@ -12,20 +13,20 @@ import com.omg.whether.dataGenerator.GenerateDate;
 public class WeatherConditions {
 
 	private Map<String, City> citysByName;
-	private List<City> allCities;
+	private PriorityQueue<City> allCities;
 
 	// TODO Save city in order - min max
 	// Use sort and comparator
 
 	public WeatherConditions() {
 		this.citysByName = new TreeMap<String, City>();
-		this.allCities = new ArrayList<City>();
+		this.allCities = new PriorityQueue<City>();
 	}
 
 	public void addCity(String cityName) {
 		City newCity = new City(cityName);
 		getCitysByName().put(cityName, newCity);
-		getAllCities().add(newCity);
+		getAllCities().offer(newCity);
 
 	}
 
@@ -37,11 +38,11 @@ public class WeatherConditions {
 		this.citysByName = citysByName;
 	}
 
-	public List<City> getAllCities() {
+	public PriorityQueue<City> getAllCities() {
 		return allCities;
 	}
 
-	public void setAllCities(List<City> allCities) {
+	public void setAllCities(PriorityQueue<City> allCities) {
 		this.allCities = allCities;
 	}
 
@@ -77,29 +78,13 @@ public class WeatherConditions {
 	}
 
 	public City cityWithMinTemperature() {
-		getAllCities().sort(new Comparator<City>() {
 
-			@Override
-			public int compare(City o1, City o2) {
-				return (o1.getMinTemerature() < o2.getMinTemerature()) ? 1
-						: (o1.getMinTemerature() > o2.getMinTemerature()) ? -1
-								: 0;
-			}
-		});
-		return getAllCities().get(0);
+		return getAllCities().poll();
 	}
 
 	public City cityWithMaxTemperature() {
-		getAllCities().sort(new Comparator<City>() {
-
-			@Override
-			public int compare(City o1, City o2) {
-				return (o1.getMinTemerature() < o2.getMinTemerature()) ? -1
-						: (o1.getMinTemerature() > o2.getMinTemerature()) ? 1
-								: 0;
-			}
-		});
-		return getAllCities().get(0);
+		// TODO
+		return getAllCities().poll();
 
 	}
 

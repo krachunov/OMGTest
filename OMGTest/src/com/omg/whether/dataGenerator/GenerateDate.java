@@ -7,6 +7,8 @@ import java.util.Random;
 import com.omg.whether.Direction;
 
 public class GenerateDate {
+	private static final int RANGE_RAIN_FALL = 80;
+	private static final int RANGE_WIND_FORCE = 200;
 
 	private static Random random = new Random();
 
@@ -24,7 +26,7 @@ public class GenerateDate {
 		List<Double> rainFallList = new ArrayList<Double>();
 		double singleRainfall;
 		for (int i = 0; i < hours; i++) {
-			singleRainfall = random.nextDouble() * 80;
+			singleRainfall = random.nextDouble() * RANGE_RAIN_FALL;
 			rainFallList.add(singleRainfall);
 		}
 		return rainFallList;
@@ -34,7 +36,7 @@ public class GenerateDate {
 		List<Double> windForeList = new ArrayList<Double>();
 		double singleWindForce;
 		for (int i = 0; i < hours; i++) {
-			singleWindForce = random.nextDouble() * 200;
+			singleWindForce = random.nextDouble() * RANGE_WIND_FORCE;
 			windForeList.add(singleWindForce);
 		}
 		return windForeList;
