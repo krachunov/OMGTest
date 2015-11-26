@@ -78,12 +78,10 @@ public class WeatherConditions {
 	}
 
 	public City cityWithMinTemperature() {
-
 		return getAllCities().poll();
 	}
 
 	public City cityWithMaxTemperature() {
-		// TODO
 		return getAllCities().poll();
 
 	}

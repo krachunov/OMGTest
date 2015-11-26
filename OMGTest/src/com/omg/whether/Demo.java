@@ -1,5 +1,6 @@
 package com.omg.whether;
 
+import java.io.ObjectInputStream.GetField;
 import java.util.Scanner;
 import java.util.Map.Entry;
 
@@ -28,19 +29,19 @@ public class Demo {
 		weatherInfo.printAllCitiesInfo();
 
 		// Print current city info
-		System.out.println("Enter the city who you want to see");
-		try (Scanner sc = new Scanner(System.in)) {
-			String wantedCity = sc.nextLine();
+		System.out.println("The city who you want to see");
+
+			String wantedCity = "Varna";
 			weatherInfo.printInfoByCity(wantedCity);
-		}
+		
 
 		System.out.println("City with minimum temperature");
 		City cityWithMinTemperature = weatherInfo.cityWithMinTemperature();
-		System.out.println(cityWithMinTemperature);
+		System.out.printf("City %s temperature: %d\n",cityWithMinTemperature,cityWithMinTemperature.getMaxTemerature());
 
 		System.out.println("City with maximum temperature");
 		City cityWithMaxTemperature = weatherInfo.cityWithMaxTemperature();
-		System.out.println(cityWithMaxTemperature);
+		System.out.printf("City %s temperature: %d\n",cityWithMaxTemperature,cityWithMaxTemperature.getMinTemerature());
 
 		// TODO Create expression who check min and max value of temperature
 	}
