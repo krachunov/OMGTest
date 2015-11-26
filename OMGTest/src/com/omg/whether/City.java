@@ -13,26 +13,17 @@ public class City {
 	private Direction[] directions;
 	private int maxTemerature;
 	private int minTemerature;
-	// TODO - Save min and max temperature for every city
 
 	private static int DIRECTIONS = 4;
 	private static int HOURS = 24;
 
+	// Create city with empty lists
 	public City(String cityName) {
 		this.cityName = cityName;
 		this.temperature = new ArrayList<Integer>();
 		this.rainfall = new ArrayList<Double>();
 		this.windForce = new ArrayList<Double>();
 		this.directions = new Direction[DIRECTIONS];
-	}
-
-	public City(String cityName, List<Double> rainfall, List<Double> windForce,
-			Direction[] directions) {
-
-		this.cityName = cityName;
-		this.rainfall = rainfall;
-		this.windForce = windForce;
-		this.directions = directions;
 	}
 
 	public List<Integer> getTemperature() {
@@ -87,7 +78,7 @@ public class City {
 	}
 
 	/**
-	 * Get min value from list of temperature and set variable maxTemerature
+	 * Get minimum value from list of temperature and set variable minTemerature
 	 */
 	public void setMinTemerature() {
 		this.minTemerature = Collections.min(getTemperature());
@@ -108,5 +99,4 @@ public class City {
 	public String toString() {
 		return getCityName();
 	}
-
 }

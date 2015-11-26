@@ -31,18 +31,19 @@ public class Demo {
 		// Print current city info
 		System.out.println("The city who you want to see");
 
-			String wantedCity = "Varna";
-			weatherInfo.printInfoByCity(wantedCity);
-		
+		// Print cities with max and min temperature
+		String wantedCity = "Varna"; // chosen city
+		weatherInfo.printInfoByCity(wantedCity);
 
 		System.out.println("City with minimum temperature");
 		City cityWithMinTemperature = weatherInfo.cityWithMinTemperature();
-		System.out.printf("City %s temperature: %d\n",cityWithMinTemperature,cityWithMinTemperature.getMinTemerature());
+		System.out.printf("City %s temperature: %d\n", cityWithMinTemperature,
+				cityWithMinTemperature.getMinTemerature());
 
 		System.out.println("City with maximum temperature");
 		City cityWithMaxTemperature = weatherInfo.cityWithMaxTemperature();
-		System.out.printf("City %s temperature: %d\n",cityWithMaxTemperature,cityWithMaxTemperature.getMaxTemerature());
+		System.out.printf("City %s temperature: %d\n", cityWithMaxTemperature,
+				cityWithMaxTemperature.getMaxTemerature());
 
-		// TODO Create expression who check min and max value of temperature
 	}
 }

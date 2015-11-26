@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.PriorityQueue;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
@@ -15,9 +14,6 @@ public class WeatherConditions {
 
 	private Map<String, City> citysByName;
 	private List<City> allCities;
-
-	// TODO Save city in order - min max
-	// Use sort and comparator
 
 	public WeatherConditions() {
 		this.citysByName = new TreeMap<String, City>();
@@ -35,16 +31,8 @@ public class WeatherConditions {
 		return citysByName;
 	}
 
-	public void setCitysByName(Map<String, City> citysByName) {
-		this.citysByName = citysByName;
-	}
-
 	public List<City> getAllCities() {
 		return allCities;
-	}
-
-	public void setAllCities(List<City> allCities) {
-		this.allCities = allCities;
 	}
 
 	// Generate values
