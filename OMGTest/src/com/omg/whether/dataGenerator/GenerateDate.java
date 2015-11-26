@@ -9,6 +9,7 @@ import com.omg.whether.Direction;
 public class GenerateDate {
 	private static final int RANGE_RAIN_FALL = 80;
 	private static final int RANGE_WIND_FORCE = 200;
+	private static final int RANGE_TEMPERATURE = 25;
 
 	private static Random random = new Random();
 
@@ -16,7 +17,7 @@ public class GenerateDate {
 		List<Integer> temperetureList = new ArrayList<Integer>();
 		int singleTemperature;
 		for (int i = 0; i < hours; i++) {
-			singleTemperature = random.nextInt(25) + 1;
+			singleTemperature = random.nextInt(RANGE_TEMPERATURE);
 			temperetureList.add(singleTemperature);
 		}
 		return temperetureList;
@@ -49,5 +50,4 @@ public class GenerateDate {
 		}
 		return directionList;
 	}
-
 }

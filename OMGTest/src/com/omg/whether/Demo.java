@@ -11,6 +11,7 @@ public class Demo {
 	public static void main(String[] args) {
 		int hours = 24;
 		WeatherConditions weatherInfo = new WeatherConditions();
+		
 		weatherInfo.addCity("Sofia");
 		weatherInfo.addCity("Plovdi");
 		weatherInfo.addCity("Varna");
