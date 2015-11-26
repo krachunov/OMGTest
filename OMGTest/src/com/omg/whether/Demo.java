@@ -37,11 +37,11 @@ public class Demo {
 
 		System.out.println("City with minimum temperature");
 		City cityWithMinTemperature = weatherInfo.cityWithMinTemperature();
-		System.out.printf("City %s temperature: %d\n",cityWithMinTemperature,cityWithMinTemperature.getMaxTemerature());
+		System.out.printf("City %s temperature: %d\n",cityWithMinTemperature,cityWithMinTemperature.getMinTemerature());
 
 		System.out.println("City with maximum temperature");
 		City cityWithMaxTemperature = weatherInfo.cityWithMaxTemperature();
-		System.out.printf("City %s temperature: %d\n",cityWithMaxTemperature,cityWithMaxTemperature.getMinTemerature());
+		System.out.printf("City %s temperature: %d\n",cityWithMaxTemperature,cityWithMaxTemperature.getMaxTemerature());
 
 		// TODO Create expression who check min and max value of temperature
 	}

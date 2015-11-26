@@ -1,6 +1,7 @@
 package com.omg.whether;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -13,20 +14,20 @@ import com.omg.whether.dataGenerator.GenerateDate;
 public class WeatherConditions {
 
 	private Map<String, City> citysByName;
-	private PriorityQueue<City> allCities;
+	private List<City> allCities;
 
 	// TODO Save city in order - min max
 	// Use sort and comparator
 
 	public WeatherConditions() {
 		this.citysByName = new TreeMap<String, City>();
-		this.allCities = new PriorityQueue<City>();
+		this.allCities = new ArrayList<City>();
 	}
 
 	public void addCity(String cityName) {
 		City newCity = new City(cityName);
 		getCitysByName().put(cityName, newCity);
-		getAllCities().offer(newCity);
+		getAllCities().add(newCity);
 
 	}
 
@@ -38,11 +39,11 @@ public class WeatherConditions {
 		this.citysByName = citysByName;
 	}
 
-	public PriorityQueue<City> getAllCities() {
+	public List<City> getAllCities() {
 		return allCities;
 	}
 
-	public void setAllCities(PriorityQueue<City> allCities) {
+	public void setAllCities(List<City> allCities) {
 		this.allCities = allCities;
 	}
 
@@ -57,6 +58,8 @@ public class WeatherConditions {
 		for (Entry<String, City> entry : this.getCitysByName().entrySet()) {
 			City currentCity = entry.getValue();
 			currentCity.setTemperature(GenerateDate.generateTempereture(hours));
+			currentCity.setMaxTemerature();
+			currentCity.setMinTemerature();
 			currentCity.setRainfall(GenerateDate.generateRainfall(hours));
 			currentCity.setWindForce(GenerateDate.generateWindForce(hours));
 			currentCity.setDirections(GenerateDate.generateDirections(hours));
@@ -78,12 +81,27 @@ public class WeatherConditions {
 	}
 
 	public City cityWithMinTemperature() {
-		return getAllCities().poll();
+
+		return Collections.min(getAllCities(), new Comparator<City>() {
+
+			@Override
+			public int compare(City o1, City o2) {
+				return (o1.getMinTemerature() < o2.getMinTemerature()) ? 1
+						: (o1.getMinTemerature() > o2.getMinTemerature()) ? -1
+								: 0;
+			}
+		});
 	}
 
 	public City cityWithMaxTemperature() {
-		return getAllCities().poll();
+		return Collections.max(getAllCities(), new Comparator<City>() {
 
+			@Override
+			public int compare(City o1, City o2) {
+				return (o1.getMaxTemerature() < o2.getMaxTemerature()) ? 1
+						: (o1.getMaxTemerature() > o2.getMaxTemerature()) ? -1
+								: 0;
+			}
+		});
 	}
-
 }

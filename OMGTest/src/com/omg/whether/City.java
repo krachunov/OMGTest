@@ -5,9 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import javax.swing.text.StyledEditorKit.ForegroundAction;
-
-public class City implements Comparable<City> {
+public class City {
 	private String cityName;
 	private List<Integer> temperature;
 	private List<Double> rainfall;
@@ -104,18 +102,11 @@ public class City implements Comparable<City> {
 							getWindForce().get(i), getDirections()[i]);
 		}
 		System.out.println();
-
 	}
 
 	@Override
 	public String toString() {
 		return getCityName();
-	}
-
-	@Override
-	public int compareTo(City o) {
-		return (this.getMinTemerature() < o.getMinTemerature()) ? -1 : (this
-				.getMinTemerature() > o.getMinTemerature()) ? 1 : 0;
 	}
 
 }
