@@ -1,11 +1,5 @@
 package com.omg.whether;
 
-import java.io.ObjectInputStream.GetField;
-import java.util.Scanner;
-import java.util.Map.Entry;
-
-import com.omg.whether.dataGenerator.GenerateDate;
-
 public class Demo {
 
 	public static void main(String[] args) {
