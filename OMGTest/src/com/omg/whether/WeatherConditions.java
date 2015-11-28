@@ -65,7 +65,6 @@ public class WeatherConditions {
 	public void printInfoByCity(String city) {
 		City currentCity = getCitysByName().get(city);
 		currentCity.printAllInfoAboutCity();
-
 	}
 
 	public City cityWithMinTemperature() {
